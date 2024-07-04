@@ -58,7 +58,6 @@ const Intro = () => {
           src={glassesimoji}
           alt=""
         />
-
         <motion.div
           initial={{ top: "-4%", left: "74%" }}
           whileInView={{ left: "68%" }}
