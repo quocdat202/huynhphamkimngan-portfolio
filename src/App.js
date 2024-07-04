@@ -1,15 +1,13 @@
-import Navbar from "./components/Navbar/Navbar";
-import Intro from "./components/Intro/Intro";
-import Services from "./components/Services/Services";
+import { useContext } from "react";
 import "./App.css";
-import Experience from "./components/Experience/Experience";
-import Works from "./components/Works/Works";
-import Portfolio from "./components/Portfolio/Portfolio";
-import Testimonial from "./components/Testimonials/Testimonial";
+import { themeContext } from "./Context";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
-import { useContext } from "react";
-import { themeContext } from "./Context";
+import Intro from "./components/Intro/Intro";
+import Navbar from "./components/Navbar/Navbar";
+import Portfolio from "./components/Portfolio/Portfolio";
+import Services from "./components/Services/Services";
+import Works from "./components/Works/Works";
 function App() {
   const theme = useContext(themeContext);
   const darkMode = theme.state.darkMode;
@@ -24,10 +22,10 @@ function App() {
       <Navbar />
       <Intro />
       <Services />
-      <Experience />
+      {/* <Experience /> */}
       <Works />
       <Portfolio />
-      <Testimonial />
+      {/* <Testimonial /> */}
       <Contact />
       <Footer />
     </div>

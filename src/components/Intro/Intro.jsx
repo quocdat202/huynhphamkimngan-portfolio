@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import "./Intro.css";
 import Vector1 from "../../img/Vector1.png";
 import Vector2 from "../../img/Vector2.png";
-import boy from "../../img/boy.png";
+import avt from "../../img/avt.png";
 import glassesimoji from "../../img/glassesimoji.png";
 import thumbup from "../../img/thumbup.png";
 import crown from "../../img/crown.png";
@@ -28,10 +28,9 @@ const Intro = () => {
         <div className="i-name">
           {/* yahan change hy darkmode ka */}
           <span style={{ color: darkMode ? "white" : "" }}>Hy! I Am</span>
-          <span>Andrew Thomas</span>
+          <span>Huynh Pham Kim Ngan</span>
           <span>
-            Frontend Developer with high level of experience in web designing
-            and development, producting the Quality work
+            I am a third-year student majoring in Digital Marketing. I have a passion for Brand Marketing
           </span>
         </div>
         <Link to="contact" smooth={true} spy={true}>
@@ -40,7 +39,9 @@ const Intro = () => {
         {/* social icons */}
         <div className="i-icons">
           <img src={Github} alt="" />
-          <img src={LinkedIn} alt="" />
+          <a href="https://www.linkedin.com/in/kimnganhuyn/">
+            <img src={LinkedIn} alt="LinkedIn Profile" />
+          </a>
           <img src={Instagram} alt="" />
         </div>
       </div>
@@ -48,7 +49,7 @@ const Intro = () => {
       <div className="i-right">
         <img src={Vector1} alt="" />
         <img src={Vector2} alt="" />
-        <img src={boy} alt="" />
+        <img src={avt} alt="" />
         {/* animation */}
         <motion.img
           initial={{ left: "-36%" }}
