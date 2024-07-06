@@ -1,12 +1,11 @@
 import React, { useContext } from "react";
-import "./Portfolio.css";
-import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css";
-import samsung from "../../img/samsung.png";
-import Ecommerce from "../../img/ecommerce.png";
-import HOC from "../../img/hoc.png";
-import MusicApp from "../../img/musicapp.png";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { themeContext } from "../../Context";
+import project2 from "../../img/project2.png";
+import project3 from "../../img/project3.png";
+import samsung from "../../img/samsung.png";
+import "./Portfolio.css";
 const Portfolio = () => {
   const theme = useContext(themeContext);
   const darkMode = theme.state.darkMode;
@@ -14,7 +13,7 @@ const Portfolio = () => {
     <div className="portfolio" id="portfolio">
       {/* heading */}
       <span style={{ color: darkMode ? 'white' : '' }}>Recent Projects</span>
-      <span>Portfolio</span>
+      {/* <span>Portfolio</span> */}
 
       {/* slider */}
       <Swiper
@@ -24,17 +23,23 @@ const Portfolio = () => {
         className="portfolio-slider"
       >
         <SwiperSlide>
-          <img src={samsung} alt="" />
+          <a href="https://drive.google.com/file/d/18r05LXgHPYBeFn1EsqU5Slhpsh6o8MxO/view" target="_blank">
+            <img src={samsung} alt="Project Samsung" />
+          </a>
         </SwiperSlide>
         <SwiperSlide>
-          <img src={Ecommerce} alt="" />
+          <a href="https://docs.google.com/document/d/1u1UR05Tzn6zJmwq595wxCtGCMjjemHnOgtRSNonyvqs/edit" target="_blank">
+            <img src={project2} alt="Gương vỡ" style={{ height: 213 }} />
+          </a>
         </SwiperSlide>
         <SwiperSlide>
-          <img src={MusicApp} alt="" />
+          <a href="https://drive.google.com/file/d/17Ux9EFxVVVHxmOgAsQPtkKElrWw5k8-S/view" target="_blank">
+            <img src={project3} alt="Project Chinsu" />
+          </a>
         </SwiperSlide>
-        <SwiperSlide>
+        {/* <SwiperSlide>
           <img src={HOC} alt="" />
-        </SwiperSlide>
+        </SwiperSlide> */}
       </Swiper>
     </div>
   );

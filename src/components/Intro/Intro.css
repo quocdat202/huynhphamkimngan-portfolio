@@ -69,7 +69,7 @@
 }
 .i-right > :nth-child(3) {
   transform: scale(0.8);
-  left: 28%;
+  left: 200px;
   top: 10%;
 }
 .i-right > :nth-child(4) {

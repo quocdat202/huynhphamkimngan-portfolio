@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 import "./Works.css";
 import canva from "../../img/canva.png";
 import Fiverr from "../../img/fiverr.png";
-import Amazon from "../../img/amazon.png";
 import studio from "../../img/studio.png";
 import capcut from "../../img/capcut.png";
+import office from "../../img/office.png";
 import { themeContext } from "../../Context";
 import { motion } from "framer-motion";
 import { Link } from 'react-scroll'
@@ -32,7 +32,7 @@ const Works = () => {
 
           </spane>
           <Link to="contact" smooth={true} spy={true}>
-            <button className="button s-button">Hire Me</button>
+            <button className="button s-button">Contact me</button>
           </Link>
           <div
             className="blur s-blur1"
@@ -54,10 +54,10 @@ const Works = () => {
             <img src={canva} alt="" />
           </div>
           <div className="w-secCircle">
-            <img src={Fiverr} alt="" />
+            <img src={Fiverr} alt="" style={{ maxWidth: '150px' }} />
           </div>
           <div className="w-secCircle">
-            <img src={Amazon} alt="" />
+            <img src={office} alt="Office" style={{ maxWidth: '200px' }} />
           </div>{" "}
           <div className="w-secCircle">
             <img src={studio} alt="" style={{ maxWidth: '350px' }} />

@@ -6,7 +6,7 @@ import Glasses from "../../img/glasses.png";
 import Humble from "../../img/humble.png";
 import { themeContext } from "../../Context";
 import { motion } from "framer-motion";
-import Resume from './resume.pdf';
+import Resume from './CV_Huynh_Pham_Kim_Ngan_Marketing_Intern.pdf';
 
 const Services = () => {
   // context
@@ -25,7 +25,7 @@ const Services = () => {
       <div className="awesome">
         {/* dark mode */}
         <span style={{ color: darkMode ? "white" : "" }}>My Awesome</span>
-        <span>services</span>
+        <span>Experience</span>
         <spane>
           I've gained experiences in these tasks through marketing competitions
           <br />
