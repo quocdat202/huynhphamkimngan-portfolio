@@ -47,7 +47,7 @@ const Services = () => {
           <Card
             emoji={HeartEmoji}
             heading={"SEO Content"}
-            detail={"Research keywords and write content to rank on the first page"}
+            detail={"Research keywords and write content to rank on the first page. Performing off-page and on-page SEO"}
           />
         </motion.div>
         {/* second card */}
