@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { themeContext } from "../../Context";
 import project2 from "../../img/project2.png";
 import project3 from "../../img/project3.png";
+import project4 from "../../img/project4.png";
 import samsung from "../../img/samsung.png";
 import "./Portfolio.css";
 const Portfolio = () => {
@@ -23,7 +24,7 @@ const Portfolio = () => {
         className="portfolio-slider"
       >
         <SwiperSlide>
-          <a href="https://drive.google.com/file/d/18r05LXgHPYBeFn1EsqU5Slhpsh6o8MxO/view" target="_blank">
+          <a href="https://drive.google.com/file/d/19-j7t2v90xxBTAxo8bStNj3KwqwbR9OP/view" target="_blank">
             <img src={samsung} alt="Project Samsung" />
           </a>
         </SwiperSlide>
@@ -35,6 +36,11 @@ const Portfolio = () => {
         <SwiperSlide>
           <a href="https://drive.google.com/file/d/17Ux9EFxVVVHxmOgAsQPtkKElrWw5k8-S/view" target="_blank">
             <img src={project3} alt="Project Chinsu" />
+          </a>
+        </SwiperSlide>
+        <SwiperSlide>
+          <a href="https://docs.google.com/spreadsheets/d/1Jd4XnT1YQz0fBbrqQ5MAJ_6ZFVxbXldZ5U5U3SiTn5c/edit?usp=sharing" target="_blank">
+            <img src={project4} alt="Project Chinsu" />
           </a>
         </SwiperSlide>
         {/* <SwiperSlide>
