@@ -27,7 +27,7 @@ const Intro = () => {
           <span style={{ color: darkMode ? "white" : "" }}>Hy! I Am</span>
           <span>Huynh Pham Kim Ngan</span>
           <span>
-            I am a third-year student majoring in Digital Marketing. I have a passion for Brand Marketing
+            I am a 4th year student majoring in Digital Marketing. I have a passion for Marketing
           </span>
         </div>
         <Link to="contact" smooth={true} spy={true}>
