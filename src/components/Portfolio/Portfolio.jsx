@@ -6,6 +6,7 @@ import project2 from "../../img/project2.png";
 import project3 from "../../img/project3.png";
 import project4 from "../../img/project4.png";
 import samsung from "../../img/samsung.png";
+import datacenter from "../../img/datacenter.png";
 import "./Portfolio.css";
 const Portfolio = () => {
   const theme = useContext(themeContext);
@@ -23,6 +24,11 @@ const Portfolio = () => {
         grabCursor={true}
         className="portfolio-slider"
       >
+        <SwiperSlide>
+          <a href="https://drive.google.com/drive/folders/1D_ODFTKhqYON8u20UiFfOwJMnfgRk7Zt" target="_blank">
+            <img src={datacenter} alt="Project Samsung" />
+          </a>
+        </SwiperSlide>
         <SwiperSlide>
           <a href="https://drive.google.com/file/d/19-j7t2v90xxBTAxo8bStNj3KwqwbR9OP/view" target="_blank">
             <img src={samsung} alt="Project Samsung" />
