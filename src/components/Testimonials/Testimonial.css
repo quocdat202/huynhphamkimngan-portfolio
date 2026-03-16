@@ -10,7 +10,7 @@
     position: relative;
 }
 .t-heading{
-    align-self: start;
+    align-self: flex-start;
 }
 .t-heading>*{
     font-size: 2rem;
