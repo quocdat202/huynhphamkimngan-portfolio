@@ -1,53 +1,46 @@
-import React from "react";
+import React, { useContext } from "react";
 import Toggle from "../Toggle/Toggle";
 import "./Navbar.css";
 import { Link } from "react-scroll";
-import withData from "../../data/withData";
-const navbar = ({ data }) => {
+import { dataContext } from "../../data/DataContext";
+
+const Navbar = () => {
+  const data = useContext(dataContext);
+  const navbar = data?.navbar;
+
+  if (!navbar) return null;
+
   return (
     <div className="n-wrapper" id="Navbar">
       {/* left */}
       <div className="n-left">
-        <div className="n-name">Kim Ngan</div>
+        <div className="n-name">{navbar.name}</div>
         <Toggle />
       </div>
       {/* right */}
       <div className="n-right">
         <div className="n-list">
           <ul style={{ listStyleType: "none" }}>
-            <li>
-              <Link activeClass="active" to="Navbar" spy={true} smooth={true}>
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link to="services" spy={true} smooth={true}>
-                Experience
-              </Link>
-            </li>
-            <li>
-              <Link to="works" spy={true} smooth={true}>
-                Tools
-              </Link>
-            </li>
-            <li>
-              <Link to="portfolio" spy={true} smooth={true}>
-                Project
-              </Link>
-            </li>
-            {/* <li>
-              <Link to="testimonial" spy={true} smooth={true}>
-                Testimonial
-              </Link>
-            </li> */}
+            {navbar.links.map((link, index) => (
+              <li key={index}>
+                <Link
+                  activeClass={index === 0 ? "active" : undefined}
+                  to={link.to}
+                  spy={true}
+                  smooth={true}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
-        <Link to="contact" spy={true} smooth={true}>
-          <button className="button n-button">Contact</button>
+        <Link to={navbar.ctaTo} spy={true} smooth={true}>
+          <button className="button n-button">{navbar.ctaLabel}</button>
         </Link>
       </div>
     </div>
   );
 };
 
-export default withData(navbar);
+export default Navbar;

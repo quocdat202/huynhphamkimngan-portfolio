@@ -2,11 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import { ThemeProvider } from './Context';
+import { DataProvider } from './data/DataContext';
 
 ReactDOM.render(
-  <ThemeProvider>
-    <App />
-  </ThemeProvider>,
+  <DataProvider>
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
+  </DataProvider>,
   document.getElementById('root')
 );
 

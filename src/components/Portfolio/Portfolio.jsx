@@ -2,21 +2,30 @@ import React, { useContext } from "react";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { themeContext } from "../../Context";
-import project2 from "../../img/project2.png";
-import project3 from "../../img/project3.png";
-import project4 from "../../img/project4.png";
-import samsung from "../../img/samsung.png";
-import datacenter from "../../img/datacenter.png";
-import productX from "../../img/productX.jpg";
+import { dataContext } from "../../data/DataContext";
 import "./Portfolio.css";
+
+const projectImages = {
+  productX: require("../../img/productX.jpg"),
+  datacenter: require("../../img/datacenter.png"),
+  samsung: require("../../img/samsung.png"),
+  project2: require("../../img/project2.png"),
+  project3: require("../../img/project3.png"),
+  project4: require("../../img/project4.png"),
+};
+
 const Portfolio = () => {
   const theme = useContext(themeContext);
   const darkMode = theme.state.darkMode;
+  const data = useContext(dataContext);
+  const portfolio = data?.portfolio;
+
+  if (!portfolio) return null;
+
   return (
     <div className="portfolio" id="portfolio">
       {/* heading */}
-      <span style={{ color: darkMode ? 'white' : '' }}>Recent Projects</span>
-      {/* <span>Portfolio</span> */}
+      <span style={{ color: darkMode ? "white" : "" }}>{portfolio.title}</span>
 
       {/* slider */}
       <Swiper
@@ -25,39 +34,17 @@ const Portfolio = () => {
         grabCursor={true}
         className="portfolio-slider"
       >
-        <SwiperSlide>
-          <a href="https://drive.google.com/drive/folders/1doDDPWfW_vCNIP1cmr-APaL4THDvF8XV" target="_blank">
-            <img src={productX} alt="Project X" />
-          </a>
-        </SwiperSlide>
-        <SwiperSlide>
-          <a href="https://drive.google.com/drive/folders/1D_ODFTKhqYON8u20UiFfOwJMnfgRk7Zt" target="_blank">
-            <img src={datacenter} alt="Project Samsung" />
-          </a>
-        </SwiperSlide>
-        <SwiperSlide>
-          <a href="https://drive.google.com/file/d/19-j7t2v90xxBTAxo8bStNj3KwqwbR9OP/view" target="_blank">
-            <img src={samsung} alt="Project Samsung" />
-          </a>
-        </SwiperSlide>
-        <SwiperSlide>
-          <a href="https://docs.google.com/document/d/1u1UR05Tzn6zJmwq595wxCtGCMjjemHnOgtRSNonyvqs/edit" target="_blank">
-            <img src={project2} alt="Gương vỡ" style={{ height: 213 }} />
-          </a>
-        </SwiperSlide>
-        <SwiperSlide>
-          <a href="https://drive.google.com/file/d/17Ux9EFxVVVHxmOgAsQPtkKElrWw5k8-S/view" target="_blank">
-            <img src={project3} alt="Project Chinsu" />
-          </a>
-        </SwiperSlide>
-        <SwiperSlide>
-          <a href="https://docs.google.com/spreadsheets/d/1Jd4XnT1YQz0fBbrqQ5MAJ_6ZFVxbXldZ5U5U3SiTn5c/edit?usp=sharing" target="_blank">
-            <img src={project4} alt="Project Chinsu" />
-          </a>
-        </SwiperSlide>
-        {/* <SwiperSlide>
-          <img src={HOC} alt="" />
-        </SwiperSlide> */}
+        {portfolio.projects.map((project, index) => (
+          <SwiperSlide key={index}>
+            <a href={project.url} target="_blank" rel="noreferrer">
+              <img
+                src={projectImages[project.image]}
+                alt={project.alt}
+                style={project.imageHeight ? { height: project.imageHeight } : {}}
+              />
+            </a>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );

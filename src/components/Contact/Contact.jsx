@@ -1,31 +1,31 @@
-import React, { useContext, useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import "./Contact.css";
-import emailjs from "@emailjs/browser";
 import { themeContext } from "../../Context";
+import { dataContext } from "../../data/DataContext";
+
 const Contact = () => {
   const theme = useContext(themeContext);
   const darkMode = theme.state.darkMode;
+  const data = useContext(dataContext);
+  const contact = data?.contact;
   const form = useRef();
-  const [done, setDone] = useState(false)
+  const [done] = useState(false);
+
+  if (!contact) return null;
 
   function sendEmail() {
-    var name = document.getElementById('name').value;
-    var email = document.getElementById('email').value;
-    var message = document.getElementById('message').value;
-
-    var mailtoLink = `mailto:ngankim.040803@gmail.com?subject=Hi!&body=${message}`;
-
+    var message = document.getElementById("message").value;
+    var mailtoLink = `mailto:${contact.email}?subject=${contact.mailtoSubject}&body=${message}`;
     window.location.href = mailtoLink;
   }
 
   return (
     <div className="contact-form" id="contact">
-      {/* left side copy and paste from work section */}
+      {/* left side */}
       <div className="w-left">
         <div className="awesome">
-          {/* darkMode */}
-          <span style={{ color: darkMode ? 'white' : '' }}>Get in Touch</span>
-          <span>Contact me</span>
+          <span style={{ color: darkMode ? "white" : "" }}>{contact.title}</span>
+          <span>{contact.subtitle}</span>
           <div
             className="blur s-blur1"
             style={{ background: "#ABF1FF94" }}
@@ -35,11 +35,11 @@ const Contact = () => {
       {/* right side form */}
       <div className="c-right">
         <form ref={form} onSubmit={sendEmail}>
-          <input type="text" name="user_name" id="name" className="user" placeholder="Name" />
-          <input type="email" name="user_email" id="email" className="user" placeholder="Email" />
-          <textarea name="message" className="user" id="message" placeholder="Message" />
-          <input type="submit" value="Send" className="button" />
-          <span>{done && "Thanks for Contacting me"}</span>
+          <input type="text" name="user_name" id="name" className="user" placeholder={contact.formPlaceholders.name} />
+          <input type="email" name="user_email" id="email" className="user" placeholder={contact.formPlaceholders.email} />
+          <textarea name="message" className="user" id="message" placeholder={contact.formPlaceholders.message} />
+          <input type="submit" value={contact.submitButtonText} className="button" />
+          <span>{done && contact.successMessage}</span>
           <div
             className="blur c-blur1"
             style={{ background: "var(--purple)" }}

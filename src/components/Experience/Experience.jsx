@@ -1,28 +1,27 @@
 import React, { useContext } from "react";
 import { themeContext } from "../../Context";
+import { dataContext } from "../../data/DataContext";
 import "./Experience.css";
+
 const Experience = () => {
   const theme = useContext(themeContext);
   const darkMode = theme.state.darkMode;
+  const data = useContext(dataContext);
+  const experience = data?.experience;
+
+  if (!experience) return null;
 
   return (
-    <div className="experience" id='experience'>
-      <div className="achievement">
-        {/* darkMode */}
-        <div className="circle" style={{color: darkMode?'var(--orange)':''}}>8+</div>
-        <span  style={{color: darkMode?'white':''}}>years </span>
-        <span>Experience</span>
-      </div>
-      <div className="achievement">
-        <div className="circle" style={{color: darkMode?'var(--orange)':''}}>20+</div>
-        <span  style={{color: darkMode?'white':''}}>completed </span>
-        <span>Projects</span>
-      </div>
-      <div className="achievement">
-        <div className="circle" style={{color: darkMode?'var(--orange)':''}}>5+</div>
-        <span  style={{color: darkMode?'white':''}}>companies </span>
-        <span>Work</span>
-      </div>
+    <div className="experience" id="experience">
+      {experience.achievements.map((item, index) => (
+        <div className="achievement" key={index}>
+          <div className="circle" style={{ color: darkMode ? "var(--orange)" : "" }}>
+            {item.value}
+          </div>
+          <span style={{ color: darkMode ? "white" : "" }}>{item.label1} </span>
+          <span>{item.label2}</span>
+        </div>
+      ))}
     </div>
   );
 };
