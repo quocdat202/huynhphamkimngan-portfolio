@@ -12,6 +12,7 @@ const projectImages = {
   project2: require("../../img/project2.png"),
   project3: require("../../img/project3.png"),
   project4: require("../../img/project4.png"),
+  hehadaDesign: require("../../img/hehadaDesign.jpg"),
 };
 
 const Portfolio = () => {
@@ -40,7 +41,9 @@ const Portfolio = () => {
               <img
                 src={projectImages[project.image]}
                 alt={project.alt}
-                style={project.imageHeight ? { height: project.imageHeight } : {}}
+                style={
+                  project.imageHeight ? { height: project.imageHeight } : {}
+                }
               />
             </a>
           </SwiperSlide>
